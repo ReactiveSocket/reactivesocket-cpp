@@ -324,7 +324,7 @@ class RSocketStateMachine final
   /// Map of all individual stream state machines.
   std::unordered_map<StreamId, std::shared_ptr<StreamStateMachineBase>>
       streams_;
-  StreamId nextStreamId_;
+  std::atomic<StreamId> nextStreamId_;
   StreamId lastPeerStreamId_{0};
 
   // Manages all state needed for warm/cold resumption.
